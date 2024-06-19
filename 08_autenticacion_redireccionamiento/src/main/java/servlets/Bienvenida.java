@@ -15,7 +15,7 @@ public class Bienvenida extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		
+		//generamos la página de respuesta
 		try(PrintWriter out=response.getWriter()){
 			out.println("<html><head></head><body><center>");
 			out.println("<h2>Bienvenido "+request.getParameter("username")+" a mi página</h2>");
