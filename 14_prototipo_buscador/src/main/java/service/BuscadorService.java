@@ -6,6 +6,7 @@ import java.util.List;
 import model.Resultado;
 
 public class BuscadorService {
+	//
 	static List<Resultado> resultados=new ArrayList<>(List.of(
 			new Resultado("http://www.fnac.es","libros","Libros y más"),
 			new Resultado("http://www.mybook.com","libros","librería de temas varios"),
