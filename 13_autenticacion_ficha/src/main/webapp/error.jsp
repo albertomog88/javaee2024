@@ -7,10 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	
-	<h1>El valor <%=request.getParameter("numero") %> no es numérico</h1>
-	<br>
-	<a href="numero.html">volver</a>
+	<h2>El usuario <%=request.getParameter("username")%></h2>
+	<h2> con contraseña <%=request.getParameter("password") %>  no es válido</h2>
+	<a href="login.html">Volver</a>
 </body>
 </html>
