@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	Introduce nombre:<input type="text" id="nombre"><br><br>
+	<input type="button" value="Saludar" onclick="saludar();">
+	<br>
+	<p id="respuesta">
+		
+	</p>
+	
+	<script type="text/javascript">
+		function saludar(){
+			//obtenemos referencia al objeto etiqueta
+			var obj=document.getElementById("nombre");
+			//mediate la propiedad value, obtenemos el valor escrito en su interior
+			//alert("Bienvenido/a "+obj.value);
+			
+			var resp=document.getElementById("respuesta");
+			resp.innerHTML="<b>Bienvenido/a "+obj.value+"</b>";
+		}
+	
+	</script>
+</body>
+</html>
