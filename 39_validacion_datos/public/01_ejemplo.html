@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="FrontController" method="POST" onsubmit="return validar();">
+		Introduce nombre:<input type="text" id="nombre"><br>
+		Introduce edad:<input type="text" id="edad"><br>
+		<input type="submit" value="Validar" >
+	</form>
+	<script type="text/javascript">
+		function validar(){
+			let nombre=document.getElementById("nombre").value;
+			let edad=document.getElementById("edad").value;
+			if(nombre.trim().length==0){
+				alert("Datos no válidos. El nombre no puede estar vacío");
+				return false;
+			}
+			if(isNaN(edad)){
+				alert("Datos no válidos. El campo edad debe ser numérico");
+				return false;
+			}
+			alert("Datos válidos!!");
+			return true;
+		}
+	</script>
+</body>
+</html>
