@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//crear objeto JSON
+		var curso={"nombre":"Java","duracion":120,"precio":80};
+		console.log(curso.nombre);
+		curso.duracion=150;
+		//alternativa creación JSON
+		var c=new Object(); //{}
+		c.nombre="Python";
+		c.duracion=60;
+		c.precio=100;
+		//transformar objeto JSON en String
+		console.log(JSON.stringify(c));
+		//transformar String en JSON
+		var cur='{"nombre":"JavaScript","duracion":45,"precio":50}';
+		cur=JSON.parse(cur);
+		alert(cur.nombre);
+	</script>
+</body>
+</html>
