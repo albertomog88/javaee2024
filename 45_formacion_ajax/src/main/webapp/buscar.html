@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<title>Cursos por precio</title>
+<style type="text/css">
+body {
+	color: purple;
+}
+
+h1 {
+	text-align: center;
+}
+
+div {
+	width: 400px;
+	margin: 50px auto;
+	padding: 15px;
+	background-color: smocke;
+	border: 1px solid purple; input { display : block;
+	margin-bottom: 15px;
+}
+
+input {
+	color: purple;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 15px;
+	border: 1px solid purple;
+	padding: 7px;
+	display: block;
+}}
+</style>
+</head>
+<body>
+	<div>
+			Introduce precio máximo:<input type="text" name="precio"
+				id="precio"> 
+				<input type="button"
+				value="Buscar" id="buscar">		
+	</div>
+	<div id="resultado">
+	
+	</div>
+	<br>
+	<a href="FrontController?operation=toMenu">volver</a>
+	
+	<script type="text/javascript">
+		$("#buscar").click(function(){
+			let url="FrontController";
+			let params=new Object();
+			params.operation="doBuscar";
+			params.precio=$("#precio").val();
+			$.get(url,params,function(data,status){
+				var tabla="<table border='1'><tr><th>Nombre</th><th>Tematica</th><th>Duracion</th><th>Precio</th></tr>"; 
+				$.each(data, function(i, e) {
+					//tabla+="<tr><td>"+e.nombre+"</td><td>"+e.tematica+"</td><td>"+e.duracion+"</td><td>"+e.precio+"</td></tr>";
+					tabla+=`<tr><td>
+								${e.nombre}
+								</td><td>
+								${e.tematica}
+								</td><td>
+								${e.duracion}
+								</td><td>
+								${e.precio}
+								</td></tr>`;
+				});
+				tabla+="</table>";
+				
+				$("#resultado").html(tabla); 
+			});
+		});
+	
+	</script>
+	
+</body>
+</html> 
