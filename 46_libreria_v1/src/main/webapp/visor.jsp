@@ -30,7 +30,7 @@
 		});
 	
 	function gestionarPeticion(url,params){
-		$.get(url,params,function(data){
+		$.get(url,params,function(data,status){
 			var tabla="<table border='1'><tr><th>Titulo</th><th>Precio</th><th>Páginas</th></tr>";
 			$.each(data,function(i,p){
 				tabla+="<tr><td>"+p.titulo+"</td><td>"+p.precio+"</td><td>"+p.paginas+"</td></tr>";
