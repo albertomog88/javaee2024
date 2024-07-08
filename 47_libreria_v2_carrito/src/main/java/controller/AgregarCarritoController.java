@@ -33,9 +33,10 @@ public class AgregarCarritoController extends HttpServlet {
 		sesion.setAttribute("carrito", carrito);
 		//envía como respuesta un JSON con los datos del carrito
 		Gson gson=new Gson();
-		PrintWriter out=response.getWriter();
-		response.setContentType("application/json");
-		out.println(gson.toJson(carrito));
+		try(PrintWriter out=response.getWriter();){
+			response.setContentType("application/json");
+			out.println(gson.toJson(carrito));
+		}
 	}
 
 }

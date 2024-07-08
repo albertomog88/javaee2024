@@ -2,40 +2,30 @@ package service;
 
 import java.util.List;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+import dao.LibrosDao;
+import dao.TemasDao;
 import jakarta.persistence.TypedQuery;
 import model.Libro;
 import model.Tema;
 
 public class LibrosService {
-	private EntityManager getEntityManager() {
-		EntityManagerFactory factory=Persistence.createEntityManagerFactory("libreriaPU");
-		return factory.createEntityManager();
-	}
+	LibrosDao librosDao=new LibrosDao();
+	TemasDao temasDao=new TemasDao();
 	
 	public List<Tema> getTemas(){
-		String jpql="select t from Tema t";
-		TypedQuery<Tema> query=getEntityManager().createQuery(jpql,Tema.class);
-		return query.getResultList();
+		return temasDao.findAll();
 	}
 	
 	public List<Libro> librosTema(int idTema){
-		String jpql="select l from Libro l";
-		TypedQuery<Libro> query;
-		if(idTema!=0) {
-			jpql+=" where l.idTema=?1";
-			query=getEntityManager().createQuery(jpql,Libro.class);
-			query.setParameter(1, idTema);
-		}else{
-			query=getEntityManager().createQuery(jpql,Libro.class);
-		}
-		return query.getResultList();
 		
+		if(idTema!=0) {
+			return librosDao.findByIdTema(idTema);
+		}else{
+			return librosDao.findAll();
+		}
+			
 	}
-	
 	public Libro getLibro(int isbn) {
-		return getEntityManager().find(Libro.class, isbn);
+		return librosDao.findByIsbn(isbn);
 	}
 }
