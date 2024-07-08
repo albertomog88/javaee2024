@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 import model.Libro;
@@ -26,5 +27,11 @@ public class LibrosDao {
 	}
 	public Libro findByIsbn(int isbn) {
 		return eManager.find(Libro.class, isbn);
+	}
+	public void save(Libro libro) {
+		EntityTransaction tx=eManager.getTransaction();
+		tx.begin();
+		eManager.persist(libro);
+		tx.commit();
 	}
 }

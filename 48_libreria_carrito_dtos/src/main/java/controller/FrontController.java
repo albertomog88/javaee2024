@@ -30,6 +30,16 @@ public class FrontController extends HttpServlet {
 				request.getRequestDispatcher("QuitarCarritoController").forward(request, response);
 				return; //en peticiones AJAX la respuesta la lleva a cabo
 						//el servlet controlador
+			case "doPaginaNuevo":
+				request.getRequestDispatcher("TemasController").include(request, response);
+				urlView="alta.jsp";
+				break;
+			case "doAltaLibro":
+				request.getRequestDispatcher("AltaLibroController").forward(request, response);
+				return;//en peticiones AJAX la respuesta la lleva a cabo
+						//el servlet controlador
+			default:
+				urlView="inicio.html";
 		}
 		
 			

@@ -20,4 +20,13 @@ public class Mapeador {
 						librosService.getTema(libro.getIdTema())
 						);
 	}
+	public static Libro libroDtoToEntity(LibroDto libro) {
+		return new Libro(libro.getIsbn(),
+				libro.getTitulo(),
+				libro.getAutor(),
+				libro.getPrecio(),
+				libro.getPaginas(),
+				libro.getTemaDto().getIdTema()
+				);
+	}
 }

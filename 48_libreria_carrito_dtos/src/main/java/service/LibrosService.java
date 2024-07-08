@@ -38,4 +38,12 @@ public class LibrosService {
 	public TemaDto getTema(int idTema) {
 		return Mapeador.temaEntityToDto(temasDao.findById(idTema));
 	}
+	
+	public boolean guardarLibro(LibroDto libro) {
+		if(librosDao.findByIsbn(libro.getIsbn())!=null) {
+			return false;
+		}
+		librosDao.save(Mapeador.libroDtoToEntity(libro));
+		return true;
+	}
 }
