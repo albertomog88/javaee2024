@@ -2,6 +2,7 @@ package model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +10,8 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="libros")
-
+@NamedQuery(name="Libro.findAll",query="select l from Libro l")
+@NamedQuery(name="Libro.findByIdTema",query="select l from Libro l where l.idTema=?1")
 public class Libro {
 	@Id
 	private int isbn;
