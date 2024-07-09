@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -9,7 +10,7 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 import model.Resultado;
 
-
+@Named("buscador1")
 public class BuscadorDaoImpl implements BuscadorDao {
 	private static EntityManager eManager;
 	static {

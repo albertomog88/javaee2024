@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import dao.BuscadorDao;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import model.Resultado;
-
+@Named("service1")
 public class BuscadorServiceImpl implements BuscadorService {
-	
-	BuscadorDao dao=new BuscadorDao();
+	@Inject
+	@Named("buscador1")
+	BuscadorDao dao;
 	//si la url no está siendo utilizada por otro resultado, se dará de alta
 	@Override
 	public boolean altaResultado(Resultado resultado) {

@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,9 +19,9 @@ import service.BuscadorService;
 public class BuscarResultadosAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
+	@Inject
+	private BuscadorService service;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BuscadorService service=new BuscadorService();
 		List<Resultado> resultados=service.resultadosPorTematica(request.getParameter("tematica"));
 		//hay que entregar la lista directamente al cliente en formato JSON
 		Gson gson=new Gson();

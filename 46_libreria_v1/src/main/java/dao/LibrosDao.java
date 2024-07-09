@@ -7,7 +7,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 import model.Libro;
-import model.Tema;
+
 
 public class LibrosDao {
 	static EntityManager eManager;
