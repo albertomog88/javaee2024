@@ -47,7 +47,10 @@ public class BuscadorDaoImpl implements BuscadorDao {
 	
 	@Override
 	public void deleteById(int idResultado) {
+		EntityTransaction tx=eManager.getTransaction();
+		tx.begin();
 		eManager.remove(findById(idResultado));
+		tx.commit();
 	}
 	@Override
 	public List<Resultado> findByTematica(String tematica){
