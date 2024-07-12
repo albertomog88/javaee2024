@@ -25,16 +25,7 @@ public class FrontController extends HttpServlet {
 				request.getRequestDispatcher("GuardarController").include(request, response);
 				urlView="nuevo.html";
 				break;
-			case "doLogin":
-				request.getRequestDispatcher("LoginController").include(request, response);
-				/*if((Boolean)request.getAttribute("autenticado")) {
-					urlView="menu.html";
-				}else {
-					urlView="error.jsp";
-				}*/
-				urlView=(Boolean)request.getAttribute("autenticado")?"menu.html":"error.jsp";
-				
-				break;
+			
 			case "toNuevo":
 				urlView="nuevo.html";
 				break;
